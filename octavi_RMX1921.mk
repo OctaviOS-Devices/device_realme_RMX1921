@@ -5,13 +5,14 @@
 #
 
 # Inherit some common RevengeOS stuff
-TARGET_GAPPS_ARCH := arm64
-TARGET_FACE_UNLOCK_SUPPORTED := true
+#TARGET_GAPPS_ARCH := arm64
+#TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_BOOT_ANIMATION_RES := 1080
-$(call inherit-product, vendor/revengeos/config/common.mk)
+$(call inherit-product, vendor/octavi/config/common_full_phone.mk)
 
 # Official-ify
-REVENGEOS_BUILDTYPE := OFFICIAL
+OCTAVI_BUILDTYPE := Official
+OCTAVI_BUILDTYPE=Official
 
 # Inherit from RMX1921 device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
@@ -19,7 +20,7 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 PRODUCT_BRAND := Realme
 PRODUCT_DEVICE := RMX1921
 PRODUCT_MANUFACTURER := Realme
-PRODUCT_NAME := revengeos_RMX1921
+PRODUCT_NAME := octavi_RMX1921
 PRODUCT_MODEL := Realme XT
 
 PRODUCT_GMS_CLIENTID_BASE := android-oppo
@@ -32,4 +33,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 BUILD_FINGERPRINT := google/coral/coral:11/RP1A.200720.009/6720564:user/release-keys
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.fingerprint=$(BUILD_FINGERPRINT)
+   ro.build.fingerprint=$(BUILD_FINGERPRINT) \
+   ro.octavi.branding.version=Official
